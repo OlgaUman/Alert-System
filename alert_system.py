@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import io
 import os
+from dotenv import load_dotenv
 import pandas as pd
 import pandahouse as ph
 from airflow.decorators import dag, task
@@ -14,6 +15,7 @@ my_token = os.getenv('MY_TOKEN')
 bot = telegram.Bot(token=my_token)
 
 # Подключение к базе
+load_dotenv()
 connection = {
     'host': os.getenv('HOST'),
     'password': os.getenv('PASSWORD'),
